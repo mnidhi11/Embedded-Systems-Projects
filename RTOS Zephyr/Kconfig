@@ -1,0 +1,69 @@
+menuconfig HCSR04
+	bool "HDC1008 Temperature and Humidity Sensor"
+	depends on I2C && HAS_DTS_I2C && GPIO && HAS_DTS_GPIO
+	help
+	  Enable driver for HDC1008 temperature and humidity sensors.
+
+menuconfig HCSR04_1
+	bool "HDC1008 Temperature and Humidity Sensor"
+	depends on I2C && HAS_DTS_I2C && GPIO && HAS_DTS_GPIO
+	help
+	  Enable driver for HDC1008 temperature and humidity sensors.
+
+if HCSR04_1
+	config Trigger_g_1
+	int
+	default 1
+
+	config Echo_g_1
+	int
+	default 3
+
+	config Trigger_z_1
+	int 
+	default 4
+
+	config Echo_z_1
+	int 
+	default 6
+
+endif #HCSR04_1
+
+
+menuconfig HCSR04_2
+	bool "HDC1008 Temperature and Humidity Sensor"
+	depends on I2C && HAS_DTS_I2C && GPIO && HAS_DTS_GPIO
+	help
+	  Enable driver for HDC1008 temperature and humidity sensors.
+
+
+
+if HCSR04_2
+	config Trigger_g_2
+	int
+	default 0
+
+	config Echo_g_2
+	int
+	default 2
+
+	config Trigger_z_2
+	int 
+	default 3
+
+	config Echo_z_2
+	int 
+	default 5
+	
+endif # HCSR04_2
+
+config PINMUX_GALILEO_GPIO_DW
+    bool "HDC1008 Temperature and Humidity Sensor"
+	depends on I2C && HAS_DTS_I2C && GPIO && HAS_DTS_GPIO
+	help
+	  Enable driver for HDC1008 temperature and humidity sensors.
+if PINMUX_GALILEO_GPIO_DW
+config PINMUX_GALILEO_GPIO0_DW_NAME
+    string "Name of DEsignWare GPIO"
+    default "GPIO_0"
+endif #PINMUX_GALILEO_GPIO_DW
