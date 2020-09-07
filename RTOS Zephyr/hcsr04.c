@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2016 Intel Corporation
- *
- * SPDX-License-Identifier: Apache-2.0
- */
 #include <zephyr.h>
 #include <version.h>
 #include <device.h>
@@ -137,8 +132,7 @@ if(strcmp(dev->config->name,"HCSRO4_1") == 0){
         
         
 /*----------------configuring gpio 6 for IO3----------*/ 
-        ret_status=gpio_pin_configure(drv_data_1->gpio, drv_data_1->zephyr_echo, //https://docs.zephyrproject.org/apidoc/latest/group__gpio__interface_ga132f154ab93f0dba11649db0ab80dd5c.html
-			   PULL_UP| GPIO_DIR_IN | GPIO_INT | EDGE_RISING);
+        ret_status=gpio_pin_configure(drv_data_1->gpio, drv_data_1->zephyr_echo, PULL_UP| GPIO_DIR_IN | GPIO_INT | EDGE_RISING);
 	
 	gpio_init_callback(&(drv_data_1->gpio_cb), echo_1, BIT(drv_data_1->zephyr_echo));
 
@@ -327,17 +321,6 @@ DEVICE_AND_API_INIT(hcsr04_sen1,"HCSRO4_1",hcsr04_init, &hcsr04_data_1,
 		    NULL, POST_KERNEL, CONFIG_SENSOR_INIT_PRIORITY,
 		    &hcsr04_driver_api);
 //sensor2
-//DEVICE_AND_API_INIT(hcsr04_sen1,"HCSRO4_1",hcsr04_init, &hcsr04_data,  
-//		    NULL, POST_KERNEL, CONFIG_SENSOR_INIT_PRIORITY,
-//		    &hcsr04_driver_api);
-//sensor2
 DEVICE_AND_API_INIT(hcsr04_sen2,"HCSRO4_2",hcsr04_init, &hcsr04_data_2,
 		    NULL, POST_KERNEL, CONFIG_SENSOR_INIT_PRIORITY,
 		    &hcsr04_driver_api);
-//gpio_dw
-//Sensor channel
-//pinmux
-//cmake
-//why idle during get
-//4 sem why?
-//why not polling and why did we use interrupt in this case
