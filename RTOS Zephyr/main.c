@@ -5,7 +5,7 @@
  */
 
 #include <zephyr.h>
-//#include <board.h>
+#include <board.h>
 #include <version.h>
 #include <device.h>
 #include <sensor.h>
